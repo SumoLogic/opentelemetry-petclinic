@@ -1,0 +1,28 @@
+name: Build and publish OpenTelemetry PetClinic App image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  BuildAndPushOpenTelemetryPetClinic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Download OpenTelemetry Java instrumentation jar
+        run: make get-ot-jar
+
+      - name: Login to ECR Repository
+        run: make login
+
+      - name: Build OpenTelemetry PetClinic docker image
+        run: make build
+
+      - name: Push OpenTelemetry PetClinic docker image
+        run: make push
