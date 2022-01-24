@@ -25,3 +25,9 @@ docker run --rm --name ot-petclinic -p 8080:8080 \
 Navigate to http://localhost:8080 and play with app. Search for traces by `service.name=petclinic`
 
 For instrumentation details please visit: [Sumo Logic OpenTelemetry Java auto-instrumentation](https://help.sumologic.com/Traces/01Getting_Started_with_Transaction_Tracing/Instrument_your_application_with_OpenTelemetry/Java_OpenTelemetry_auto-instrumentation) guide.
+
+## Local build
+
+```bash
+docker build -t opentelemetry-petclinic .
+```
