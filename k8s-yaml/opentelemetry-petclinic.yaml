@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: opentelemetry-demo
+  labels:
+    name: opentelemetry-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-ot
+  namespace: opentelemetry-demo
+spec:
+  selector:
+    matchLabels:
+      app: petclinic
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: petclinic
+      name: petclinic
+    spec:
+      containers:
+        - env:
+            - name: JAVA_TOOL_OPTIONS
+              value: "-javaagent:/agent/opentelemetry-javaagent.jar"
+            - name: OTEL_TRACES_EXPORTER
+              value: otlp
+            - name: OTEL_EXPORTER_OTLP_TRACES_PROTOCOL
+              value: http/protobuf
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: http://RELEASE_NAME-CHART_NAME-otelcol.NAMESPACE:55681/v1/traces
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: service.name=petclinic-svc,application=petclinic
+          image: public.ecr.aws/sumologic/opentelemetry-petclinic:latest
+          imagePullPolicy: Always
+          name: petclinic
+          resources:
+      hostname: petclinic
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic-svc
+  namespace: opentelemetry-demo
+  labels:
+    app: petclinic
+spec:
+  selector:
+    app: petclinic
+  ports:
+    - name: "http-petclinic"
+      port: 8080
+      targetPort: 8080
+status:
+  loadBalancer: {}
