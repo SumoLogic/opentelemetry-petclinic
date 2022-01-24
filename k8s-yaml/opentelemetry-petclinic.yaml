@@ -33,8 +33,10 @@ spec:
               value: http/protobuf
             - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
               value: http://RELEASE_NAME-CHART_NAME-otelcol.NAMESPACE:55681/v1/traces
+            - name: OTEL_SERVICE_NAME
+              value: petclinic-svc
             - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=petclinic-svc,application=petclinic
+              value: application=petclinic
           image: public.ecr.aws/sumologic/opentelemetry-petclinic:latest
           imagePullPolicy: Always
           name: petclinic
