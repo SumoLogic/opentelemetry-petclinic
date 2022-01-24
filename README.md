@@ -18,7 +18,7 @@ export TRACES_URL=YOUR SUMO LOGIC HTTP TRACES URL
 
 docker run --rm --name ot-petclinic -p 8080:8080 \
     --env JAVA_TOOL_OPTIONS="-javaagent:/agent/opentelemetry-javaagent.jar" \
-    --env OTEL_SERVICE_NAME=petclinic \
+    --env OTEL_SERVICE_NAME=petclinic-svc \
     --env OTEL_RESOURCE_ATTRIBUTES=application=petclinic-app \
     --env OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=${TRACES_URL} \
     --env OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf \
