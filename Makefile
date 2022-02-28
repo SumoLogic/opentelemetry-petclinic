@@ -13,6 +13,7 @@ OT_JAR_VERSION = v1.11.1
 .PHONY: get-ot-jar
 get-ot-jar:
 	wget -c https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/$(OT_JAR_VERSION)/opentelemetry-javaagent.jar
+	chmod o+x opentelemetry-javaagent.jar
 
 #-------------------------------------------------------------------------------
 
