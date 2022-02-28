@@ -18,8 +18,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Download OpenTelemetry Java instrumentation jar
-      #   run: make get-ot-jar
+      - name: Download OpenTelemetry Java instrumentation jar
+        run: make get-ot-jar
 
       - name: Login to ECR Repository
         run: make login

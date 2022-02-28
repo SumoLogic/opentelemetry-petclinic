@@ -6,13 +6,13 @@ IMAGE_NAME = opentelemetry-petclinic
 ECR_URL = public.ecr.aws/sumologic
 REPO_URL = $(ECR_URL)/$(IMAGE_NAME)
 TAG = $(REPO_URL):latest
-OT_JAR_VERSION = v1.10.0
+OT_JAR_VERSION = v1.11.1
 
 #-------------------------------------------------------------------------------
 
 .PHONY: get-ot-jar
 get-ot-jar:
-	wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/$(OT_JAR_VERSION)/opentelemetry-javaagent.jar
+	wget -c https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/$(OT_JAR_VERSION)/opentelemetry-javaagent.jar
 
 #-------------------------------------------------------------------------------
 
