@@ -2,7 +2,7 @@
 
 Just the [Spring PetClinic](https://github.com/spring-petclinic/spring-framework-petclinic) sample application image with [OpenTelemetry Java Instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) agent inside. 
 
-Current OpenTelemetry Java agent version: `v1.10.0`
+Current OpenTelemetry Java agent version: `v1.11.1`
 
 ## Prerequisites
 
