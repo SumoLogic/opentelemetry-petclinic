@@ -6,7 +6,7 @@ IMAGE_NAME = opentelemetry-petclinic
 ECR_URL = public.ecr.aws/sumologic
 REPO_URL = $(ECR_URL)/$(IMAGE_NAME)
 TAG = $(REPO_URL):latest
-OT_JAR_VERSION = v1.11.1
+OT_JAR_VERSION = v1.26.0
 
 #-------------------------------------------------------------------------------
 
