@@ -34,7 +34,7 @@ spec:
             - name: OTEL_EXPORTER_OTLP_PROTOCOL
               value: http/protobuf
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: http://RELEASE_NAME-CHART_NAME-otelcol.NAMESPACE:4318
+              value: http://RELEASE_NAME-CHART_NAME-otelagent.NAMESPACE:4318
             - name: OTEL_SERVICE_NAME
               value: petclinic-svc
             - name: OTEL_RESOURCE_ATTRIBUTES
